@@ -1,0 +1,49 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}Order Confirmed - Homemade Pickles & Snacks{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/order_confirmation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="confirmation-container success-animation">
+    <span class="success-icon">🫙</span>
+
+    <h1 class="confirmation-title">Order Confirmed!</h1>
+
+    <div class="order-details">
+        <div class="order-id">Order #{{ order_id }}</div>
+
+        <div class="customer-name">
+            Thank you, {{ customer_name }}!
+        </div>
+
+        <div class="delivery-info">
+            <h4>🌶️ What's Next?</h4>
+            <p>• Your order is being prepared with care</p>
+            <p>• Expected delivery: 2-3 business days</p>
+            <p>• Our team will contact you before delivery</p>
+        </div>
+
+        <div class="thank-you-message">
+            Your delicious homemade pickles and snacks are on their way!
+            We appreciate your trust in our traditional recipes and quality ingredients.
+            Get ready to enjoy the authentic flavors that have been passed down for generations.
+        </div>
+
+        <div class="action-buttons">
+            <a href="{% url 'products' %}" class="continue-btn">
+                🛍️ Continue Shopping
+            </a>
+
+            <a href="{% url 'orders' %}" class="continue-btn">
+                📋 My Orders
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

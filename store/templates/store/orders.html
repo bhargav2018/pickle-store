@@ -1,0 +1,110 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}My Orders - Homemade Pickles & Snacks{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/orders.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="orders-title">🧺 My Orders</h1>
+
+{% for order in orders %}
+<article class="order-card">
+
+    <div class="order-head">
+        <strong>Order #{{ order.id }}</strong>
+
+        <span class="order-meta">
+            {{ order.created_at|date:"j M Y, g:i A" }} · {{ order.payment_method }}
+        </span>
+    </div>
+
+    <!-- Order Status -->
+    <div class="order-tracking">
+
+        <h3>Order Status</h3>
+
+        {% if order.status == "Cancelled" %}
+
+            <div class="status-cancelled">
+                🚫 This order has been cancelled.
+            </div>
+
+        {% else %}
+
+            {% with current_status=order.status %}
+            <div class="tracking-progress">
+
+                <div class="tracking-step {% if current_status == 'Pending' or current_status == 'Processing' or current_status == 'Shipped' or current_status == 'Delivered' %}completed{% endif %}">
+                    <div class="tracking-circle">1</div>
+                    <span>Pending</span>
+                </div>
+
+                <div class="tracking-line {% if current_status == 'Processing' or current_status == 'Shipped' or current_status == 'Delivered' %}completed{% endif %}"></div>
+
+                <div class="tracking-step {% if current_status == 'Processing' or current_status == 'Shipped' or current_status == 'Delivered' %}completed{% endif %}">
+                    <div class="tracking-circle">2</div>
+                    <span>Processing</span>
+                </div>
+
+                <div class="tracking-line {% if current_status == 'Shipped' or current_status == 'Delivered' %}completed{% endif %}"></div>
+
+                <div class="tracking-step {% if current_status == 'Shipped' or current_status == 'Delivered' %}completed{% endif %}">
+                    <div class="tracking-circle">3</div>
+                    <span>Shipped</span>
+                </div>
+
+                <div class="tracking-line {% if current_status == 'Delivered' %}completed{% endif %}"></div>
+
+                <div class="tracking-step {% if current_status == 'Delivered' %}completed{% endif %}">
+                    <div class="tracking-circle">4</div>
+                    <span>Delivered</span>
+                </div>
+
+            </div>
+            {% endwith %}
+
+            <p class="current-status">
+                Current Status:
+                <strong>{{ order.get_status_display }}</strong>
+            </p>
+
+        {% endif %}
+
+    </div>
+
+    <!-- Ordered Products -->
+    {% for item in order.items.all %}
+    <div class="order-line">
+        <span>{{ item.product.name }} × {{ item.quantity }}</span>
+        <span>₹{{ item.line_total|floatformat:0 }}</span>
+    </div>
+    {% endfor %}
+
+    <div class="order-total">
+        <span>Total</span>
+        <span>₹{{ order.total_amount|floatformat:0 }}</span>
+    </div>
+
+    <div class="order-meta order-address">
+        Delivering to: {{ order.address }}
+    </div>
+
+</article>
+
+{% empty %}
+
+<div class="orders-empty">
+    <h2>You haven't placed any orders yet.</h2>
+
+    <a href="{% url 'products' %}" class="btn start-shopping-btn">
+        🥒 Start Shopping
+    </a>
+</div>
+
+{% endfor %}
+
+{% endblock %}

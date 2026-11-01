@@ -1,0 +1,43 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}Login or Sign Up - Homemade Pickles & Snacks{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="auth-container">
+    <h1 class="auth-title">🫙 Welcome Back!</h1>
+
+    <p class="auth-subtitle">
+        Choose your preferred option to continue your pickle journey.<br>
+        New to our store? Sign up to get started. Already a member? Sign in to continue shopping.
+    </p>
+
+    <div class="auth-options">
+        <div class="auth-card signup-card">
+            <span class="auth-icon">🌶️</span>
+            <h3>New Customer</h3>
+            <p>Create a new account to start shopping for delicious homemade pickles and snacks</p>
+
+            <a href="{% url 'signup' %}" class="btn auth-btn">
+                🛍️ Sign Up
+            </a>
+        </div>
+
+        <div class="auth-card login-card">
+            <span class="auth-icon">🥒</span>
+            <h3>Existing Customer</h3>
+            <p>Welcome back! Sign in to your account and continue your shopping experience</p>
+
+            <a href="{% url 'login' %}" class="btn auth-btn">
+                🫙 Sign In
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

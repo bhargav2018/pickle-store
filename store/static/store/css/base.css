@@ -1,0 +1,220 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Pickle Garden Colours */
+:root {
+    --green: #526B35;
+    --dark-green: #3F5429;
+    --cream: #F7F2E5;
+    --mustard: #D9A441;
+    --brown: #493522;
+    --white: #FFFFFF;
+}
+
+/* Page background */
+body {
+    font-family: Arial, sans-serif;
+    background: var(--cream);
+    min-height: 100vh;
+    color: var(--brown);
+}
+
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(73, 53, 34, 0.10);
+    border: 1px solid #E5DFCF;
+}
+
+.header h1 {
+    text-align: center;
+    color: var(--dark-green);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header p {
+    text-align: center;
+    color: #82745F;
+    font-size: 1.2em;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.nav a {
+    color: var(--dark-green);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    background: #E8EDDF;
+    color: var(--dark-green);
+}
+
+/* Main content */
+.content {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(73, 53, 34, 0.08);
+    border: 1px solid #E5DFCF;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: var(--dark-green);
+}
+
+/* Flash messages */
+.flash-messages {
+    margin-bottom: 20px;
+}
+
+.flash-message {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.flash-success {
+    background-color: #E5F1DF;
+    color: #315C29;
+    border: 1px solid #C6DDBB;
+}
+
+.flash-error {
+    background-color: #FCE8E5;
+    color: #8A3028;
+    border: 1px solid #EBC5BE;
+}
+
+/* Buttons */
+.btn {
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: var(--dark-green);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--brown);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #DED8C9;
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--brown);
+    background: var(--white);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--green);
+}
+
+/* Cart icon */
+.cart-icon {
+    position: relative;
+    color: var(--green);
+    font-size: 1.5em;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--mustard);
+    color: var(--brown);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logout form */
+.logout-form {
+    display: inline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
+
+    .header {
+        padding: 16px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav a {
+        padding: 8px 12px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,70 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}Home - Homemade Pickles & Snacks{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="hero">
+    <h1>🫙 Welcome to Our Pickle Paradise! 🌶️</h1>
+    <p>
+        Discover the authentic taste of homemade pickles and traditional snacks,<br>
+        prepared with love using time-honored recipes passed down through generations.
+    </p>
+</div>
+
+<div class="pickle-gallery">
+    <div class="pickle-card">
+        <span class="pickle-emoji">🥭</span>
+        <h3>Mango Pickle</h3>
+        <p>Tangy and spicy mango pickle made with fresh raw mangoes and aromatic spices</p>
+    </div>
+
+    <div class="pickle-card">
+        <span class="pickle-emoji">🍋</span>
+        <h3>Lemon Pickle</h3>
+        <p>Zesty lemon pickle that adds a burst of flavor to any meal</p>
+    </div>
+
+    <div class="pickle-card">
+        <span class="pickle-emoji">🥕</span>
+        <h3>Mixed Vegetable</h3>
+        <p>A delightful mix of seasonal vegetables preserved in traditional pickle masala</p>
+    </div>
+
+    <div class="pickle-card">
+        <span class="pickle-emoji">🧄</span>
+        <h3>Garlic Pickle</h3>
+        <p>Pungent garlic pickle for those who love bold, intense flavors</p>
+    </div>
+
+    <div class="pickle-card">
+        <span class="pickle-emoji">🥜</span>
+        <h3>Crunchy Snacks</h3>
+        <p>Traditional homemade snacks including murukku, mixture, and roasted nuts</p>
+    </div>
+
+    <div class="pickle-card">
+        <span class="pickle-emoji">🍌</span>
+        <h3>Banana Chips</h3>
+        <p>Crispy, golden banana chips made from fresh bananas, fried to perfection</p>
+    </div>
+</div>
+
+<div class="cta-section">
+    <h2>Ready to Taste Tradition?</h2>
+    <p>
+        Join our community of pickle lovers and make our pickles and snacks<br>
+        a delicious part of their daily meals!
+    </p>
+
+    <a href="{% url 'auth' %}" class="btn get-started-btn">
+        🛍️ Get Started
+    </a>
+</div>
+
+{% endblock %}

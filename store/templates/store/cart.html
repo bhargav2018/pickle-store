@@ -1,0 +1,86 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}Your Cart - Homemade Pickles & Snacks{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="cart-header">
+    <h1 class="cart-title">🧺 Your Cart</h1>
+</div>
+
+{% if cart %}
+    {% for item in cart %}
+    <div class="cart-item">
+        <div class="item-image">
+            🫙
+        </div>
+
+        <div class="item-details">
+            <div class="item-name">{{ item.name }}</div>
+            <div class="item-price">₹{{ item.price|floatformat:0 }} each</div>
+
+            <div class="item-quantity">
+                <form class="qty-form" method="post" action="{% url 'update_cart' product_id=item.product_id %}">
+                    {% csrf_token %}
+                    <label for="qty-{{ item.product_id }}">Quantity:</label>
+                    <input type="number"
+                           id="qty-{{ item.product_id }}"
+                           name="quantity"
+                           value="{{ item.quantity }}"
+                           min="0"
+                           max="{{ item.stock }}">
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+
+            {% if item.quantity > item.stock %}
+            <div class="stock-hint">
+                Only {{ item.stock }} in stock. Please reduce the quantity.
+            </div>
+            {% endif %}
+
+            <div class="item-total">
+                Total: ₹{{ item.line_total|floatformat:0 }}
+            </div>
+        </div>
+
+        <form method="post" action="{% url 'remove_from_cart' product_id=item.product_id %}">
+            {% csrf_token %}
+            <button type="submit"
+                    class="remove-btn"
+                    onclick="return confirm('Remove this item from cart?')">✕</button>
+        </form>
+    </div>
+    {% endfor %}
+
+    <div class="cart-summary">
+        <div class="total-amount">
+            Total: ₹{{ total|floatformat:0 }}
+        </div>
+
+        <a href="{% url 'checkout' %}" class="btn checkout-btn">
+            🌶️ Proceed to Checkout
+        </a>
+
+        <a href="{% url 'products' %}" class="continue-shopping">
+            ← Continue Shopping
+        </a>
+    </div>
+
+{% else %}
+    <div class="cart-empty">
+        <span class="cart-empty-icon">🧺</span>
+        <h2>Your cart is empty!</h2>
+        <p>Add some delicious pickles and snacks to get started.</p>
+        <a href="{% url 'products' %}" class="btn start-shopping-btn">
+            🥒 Start Shopping
+        </a>
+    </div>
+{% endif %}
+
+{% endblock %}

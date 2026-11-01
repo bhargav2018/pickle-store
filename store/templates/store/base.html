@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Homemade Pickles & Snacks{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'store/css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% if user.is_authenticated %}
+        <div class="header">
+            <h1>🫙 Homemade Pickles & Snacks 🌶️</h1>
+            <p>Authentic taste, made with love</p>
+
+            <div class="nav">
+                <div>
+                    <a href="{% url 'products' %}">Products</a>
+                    <a href="{% url 'orders' %}">My Orders</a>
+                    <a href="{% url 'cart' %}">
+                        <span class="cart-icon">
+                            🛒
+                            {% if cart_count %}
+                            <span class="cart-count">{{ cart_count }}</span>
+                            {% endif %}
+                        </span>
+                    </a>
+                </div>
+
+                <div>
+                    <span>Welcome, {{ user.username }}!</span>
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <div class="flash-message flash-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+/* Checkout container */
+
+.checkout-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.checkout-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #3F5429;
+    margin-bottom: 40px;
+}
+
+/* Checkout layout */
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Checkout form */
+
+.checkout-form {
+    background: #FFFFFF;
+    border: 1px solid #E5DFCF;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(73, 53, 34, 0.08);
+}
+
+.form-title {
+    font-size: 1.5em;
+    color: #3F5429;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Demo payment notice */
+
+.demo-payment-notice {
+    background: #FFF5D9;
+    border: 1px solid #E8CD82;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    color: #79591C;
+    line-height: 1.5;
+}
+
+/* Form rows */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-row-full {
+    grid-column: 1 / -1;
+}
+
+/* Form fields */
+
+.checkout-form .form-group {
+    margin-bottom: 20px;
+}
+
+.checkout-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #493522;
+}
+
+.checkout-form .form-group input,
+.checkout-form .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #DED8C9;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #493522;
+    background: #FFFFFF;
+    font-family: Arial, sans-serif;
+}
+
+.checkout-form .form-group input:focus,
+.checkout-form .form-group textarea:focus {
+    outline: none;
+    border-color: #526B35;
+}
+
+.checkout-form .form-group textarea {
+    resize: vertical;
+}
+
+/* Payment options */
+
+.payment-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border: 2px solid #DED8C9;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #FFFFFF;
+}
+
+.payment-option:hover {
+    border-color: #526B35;
+    background: #F7F2E5;
+}
+
+.payment-option input[type="radio"] {
+    accent-color: #526B35;
+    cursor: pointer;
+    margin: 0;
+}
+
+.payment-option label {
+    color: #493522;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.payment-option.selected {
+    border-color: #526B35;
+    background: #E8EDDF;
+}
+
+/* Place order button */
+
+.place-order-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    margin-top: 20px;
+    background: #526B35;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.place-order-btn:hover {
+    background: #3F5429;
+}
+
+/* Order summary */
+
+.order-summary {
+    background: #F7F2E5;
+    border: 1px solid #E5DFCF;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(73, 53, 34, 0.08);
+    height: fit-content;
+}
+
+.summary-title {
+    font-size: 1.5em;
+    color: #3F5429;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #E5DFCF;
+    gap: 12px;
+    color: #493522;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #3F5429;
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 2px solid #DED8C9;
+}
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+
+    .checkout-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .checkout-title {
+        font-size: 2em;
+    }
+
+    .checkout-form {
+        padding: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .payment-options {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        padding: 20px;
+    }
+
+}
