@@ -1,0 +1,165 @@
+
+.confirmation-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.success-animation {
+    animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-icon {
+    font-size: 8em;
+    margin-bottom: 30px;
+    display: block;
+    color: #526B35;
+}
+
+.confirmation-title {
+    font-size: 2.5em;
+    color: #526B35;
+    margin-bottom: 20px;
+}
+
+.order-details {
+    background: #FFFFFF;
+    border: 1px solid #E5DFCF;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 8px 25px rgba(73, 53, 34, 0.1);
+}
+
+.order-id {
+    font-size: 1.5em;
+    color: #493522;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.customer-name {
+    color: #756B5C;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.thank-you-message {
+    color: #756B5C;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.continue-btn {
+    background: linear-gradient(45deg, #526B35, #3F5429);
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.continue-btn:hover {
+    background: #3F5429;
+    transform: translateY(-2px);
+}
+
+.celebration-confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #D9A441;
+    animation: confetti-fall 3s linear infinite;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.delivery-info {
+    background: #E8EDDF;
+    border-left: 4px solid #526B35;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.delivery-info h4 {
+    color: #3F5429;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.delivery-info p {
+    color: #493522;
+    margin: 5px 0;
+}
+
+@media (max-width: 600px) {
+    .confirmation-container {
+        padding: 25px 10px;
+    }
+
+    .confirmation-title {
+        font-size: 2em;
+    }
+
+    .success-icon {
+        font-size: 5em;
+    }
+
+    .order-details {
+        padding: 20px 15px;
+    }
+
+    .action-buttons {
+        gap: 12px;
+    }
+}

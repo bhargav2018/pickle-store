@@ -1,0 +1,244 @@
+/* Products page */
+
+.products-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.products-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.products-header h1 {
+    margin-bottom: 10px;
+    color: #3F5429;
+    font-size: 32px;
+}
+
+.products-header p {
+    color: #82745F;
+    font-size: 16px;
+}
+
+/* Filter form */
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #F7F2E5;
+    border-radius: 10px;
+    border: 1px solid #E5DFCF;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group label,
+.add-to-cart-form label {
+    font-weight: 600;
+    color: #493522;
+}
+
+.filter-group select {
+    min-width: 200px;
+    padding: 10px;
+    border: 1px solid #DED8C9;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #493522;
+}
+
+.filter-button,
+.add-to-cart-button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #526B35;
+    color: #FFFFFF;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.filter-button:hover,
+.add-to-cart-button:hover {
+    background: #3F5429;
+}
+
+/* Products grid */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    overflow: hidden;
+    border: 1px solid #E5DFCF;
+    border-radius: 12px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(73, 53, 34, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(73, 53, 34, 0.14);
+}
+
+/* Product image */
+
+.product-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    overflow: hidden;
+    background: #E8EDDF;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.no-image {
+    padding: 20px;
+    color: #82745F;
+    text-align: center;
+}
+
+/* Product information */
+
+.product-details {
+    padding: 20px;
+}
+
+.product-details h2 {
+    margin: 0 0 10px;
+    color: #3F5429;
+    font-size: 21px;
+}
+
+.product-description {
+    min-height: 45px;
+    margin-bottom: 15px;
+    color: #756B5C;
+    line-height: 1.5;
+}
+
+.product-price {
+    margin: 12px 0;
+    color: #526B35;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+/* Stock messages */
+
+.stock-available,
+.stock-low,
+.stock-out {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.stock-available {
+    color: #315C29;
+}
+
+.stock-low {
+    color: #A66D12;
+}
+
+.stock-out {
+    color: #B33A32;
+}
+
+/* Add to cart */
+
+.add-to-cart-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.add-to-cart-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #DED8C9;
+    border-radius: 6px;
+    color: #493522;
+}
+
+.add-to-cart-button {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* Empty products message */
+
+.empty-products {
+    grid-column: 1 / -1;
+    padding: 40px 20px;
+    text-align: center;
+    color: #756B5C;
+    background: #F7F2E5;
+    border: 1px solid #E5DFCF;
+    border-radius: 10px;
+}
+
+.empty-products h2 {
+    color: #3F5429;
+    margin-bottom: 10px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .products-page {
+        padding: 20px 12px;
+    }
+
+    .products-header h1 {
+        font-size: 26px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .filter-group select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .filter-button {
+        width: 100%;
+    }
+}
